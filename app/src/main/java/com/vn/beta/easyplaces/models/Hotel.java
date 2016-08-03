@@ -1,8 +1,6 @@
-package com.vn.beta.easyplaces.views.models;
+package com.vn.beta.easyplaces.models;
 
-/**
- * Created by quang.td95 on 7/27/2016.
- */
+
 public class Hotel {
     private String name;
     private String address;

@@ -12,15 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.vn.beta.easyplaces.R;
-import com.vn.beta.easyplaces.views.models.Hotel;
+import com.vn.beta.easyplaces.models.Hotel;
+import com.vn.beta.easyplaces.presenters.DownloadImage;
+import com.vn.beta.easyplaces.views.adapters.AdapterListViewHome;
 
 import java.util.ArrayList;
 
 
 
-/**
- * Created by djwag on 7/27/2016.
- */
 public class Fragment_Home extends Fragment {
     private ArrayList<Hotel> hotels;
     private ListView listView;

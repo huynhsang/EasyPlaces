@@ -1,4 +1,4 @@
-package com.vn.beta.easyplaces.views.fragments;
+package com.vn.beta.easyplaces.presenters;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,15 +6,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
+import com.vn.beta.easyplaces.views.fragments.Fragment_Home;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class DownloadImage extends AsyncTask<ArrayList<String>, Void, ArrayList<Bitmap>> {
+    public ArrayList<Bitmap> bitmaps=new ArrayList<>();
     ProgressDialog progressDialog=null;
-    ArrayList<Bitmap> bitmaps=new ArrayList<>();
     Context context;
+
     public DownloadImage(Context context){
         this.context=context;
     }
