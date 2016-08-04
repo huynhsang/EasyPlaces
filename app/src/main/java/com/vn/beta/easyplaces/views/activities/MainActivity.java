@@ -12,6 +12,7 @@ import com.roughike.bottombar.OnTabSelectedListener;
 import com.vn.beta.easyplaces.R;
 import com.vn.beta.easyplaces.views.fragments.Fragment_Home;
 import com.vn.beta.easyplaces.views.fragments.Fragment_Search;
+import com.vn.beta.easyplaces.views.fragments.SampleFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         bottomBar.mapColorForTab(2, "#7B1FA2");
         bottomBar.mapColorForTab(3, "#FF5252");
         bottomBar.mapColorForTab(4, "#FFF9B70E");
+
 
         BottomBarBadge bottomBarBadge=bottomBar.makeBadgeForTabAt(3,"#E91E63",4);
         bottomBarBadge.show();

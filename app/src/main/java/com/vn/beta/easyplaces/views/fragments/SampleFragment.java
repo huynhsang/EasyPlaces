@@ -1,4 +1,4 @@
-package com.vn.beta.easyplaces.views.activities;
+package com.vn.beta.easyplaces.views.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
