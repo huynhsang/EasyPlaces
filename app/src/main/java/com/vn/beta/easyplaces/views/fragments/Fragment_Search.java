@@ -12,9 +12,6 @@ import android.view.ViewGroup;
 import com.vn.beta.easyplaces.R;
 
 
-/**
- * Created by djwag on 7/27/2016.
- */
 public class Fragment_Search extends Fragment {
 
     public Fragment_Search() {

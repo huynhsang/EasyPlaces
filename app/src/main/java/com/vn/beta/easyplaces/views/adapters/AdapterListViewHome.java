@@ -1,6 +1,5 @@
 package com.vn.beta.easyplaces.views.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.Display;
@@ -13,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vn.beta.easyplaces.R;
-import com.vn.beta.easyplaces.models.Hotel;
+import com.vn.beta.easyplaces.models.Post;
 import com.vn.beta.easyplaces.views.fragments.Fragment_Home;
 
 import java.util.ArrayList;
@@ -21,17 +20,15 @@ import java.util.List;
 
 
 
-/**
- * Created by djwag on 7/27/2016.
- */
-public class AdapterListViewHome extends ArrayAdapter<Hotel> {
+
+public class AdapterListViewHome extends ArrayAdapter<Post> {
     Context context;
     int resource;
-    List<Hotel> objects;
+    List<Post> objects;
     int widthDevice;
     /*ImageView imgImg;*/
     ArrayList<Bitmap> bitmaps=new ArrayList<>();
-    public AdapterListViewHome(Context context, int resource, List<Hotel> objects) {
+    public AdapterListViewHome(Context context, int resource, List<Post> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
@@ -52,13 +49,13 @@ public class AdapterListViewHome extends ArrayAdapter<Hotel> {
     }
 
     @Override
-    public Hotel getItem(int position) {
+    public Post getItem(int position) {
         return objects.get(position);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Hotel hotel= getItem(position);
+        Post post= getItem(position);
         //Get the data item for this position
         ViewHolder holder = null;
         //check if an existing view is being reused, otherwise inflate the view
@@ -70,7 +67,7 @@ public class AdapterListViewHome extends ArrayAdapter<Hotel> {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.setValue(hotel, position);
+        holder.setValue(post, position);
         return convertView;
     }
 
@@ -87,17 +84,17 @@ public class AdapterListViewHome extends ArrayAdapter<Hotel> {
             imgImg= (ImageView) v.findViewById(R.id.imgImage);
         }
 
-        public void setValue(Hotel hotel, int position){
+        public void setValue(Post post, int position){
             txtName.setText(
-                    hotel.getName());
+                    post.getName());
             txtName.setMaxWidth((int)widthDevice*50/100);
-            txtAddress.setText(hotel.getAddress());
+            txtAddress.setText(post.getAddress());
             txtAddress.setMaxWidth((int)widthDevice*50/100);
-            txtType.setText(hotel.getType());
+            txtType.setText(post.getType());
             txtType.setMaxWidth((int)widthDevice*50/100);
-            txtArea.setText(hotel.getArea());
+            txtArea.setText(post.getArea() + "");
             txtArea.setMaxWidth((int)widthDevice*50/100);
-            txtPrice.setText(hotel.getPrice());
+            txtPrice.setText(post.getPrice() + "");
             txtPrice.setMaxWidth((int)widthDevice*50/100);
             if (Fragment_Home.flag==true){
                 WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
