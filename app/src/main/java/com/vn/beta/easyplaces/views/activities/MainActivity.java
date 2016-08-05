@@ -1,8 +1,12 @@
 package com.vn.beta.easyplaces.views.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.roughike.bottombar.BottomBar;
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     BottomBar bottomBar;
     ActionBar actionBar;
     TextView txtTitle;
+    Button btnToMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,24 +34,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        btnToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         bottomBar.setOnItemSelectedListener(new OnTabSelectedListener() {
             @Override
             public void onItemSelected(int position) {
                 switch (position){
                     case 0:
                         txtTitle.setText("Trang Chủ");
+                        btnToMap.setVisibility(View.VISIBLE);
                         break;
                     case 1:
                         txtTitle.setText("Tìm Kiếm");
+                        btnToMap.setVisibility(View.GONE);
                         break;
                     case 2:
                         txtTitle.setText("Đã Lưu");
+                        btnToMap.setVisibility(View.GONE);
                         break;
                     case 3:
                         txtTitle.setText("Thông Báo");
+                        btnToMap.setVisibility(View.GONE);
                         break;
                     case 4:
                         txtTitle.setText("Menu");
+                        btnToMap.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -65,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
                 new BottomBarFragment(SampleFragment.newInstance("notification"),R.drawable.ic_notifications_none_black_24dp,"Noti.."),
                 new BottomBarFragment(SampleFragment.newInstance("setting"),R.drawable.ic_menu_black_24dp,"Menu")
         );
-        bottomBar.mapColorForTab(0, "#3B494C");
+        bottomBar.mapColorForTab(0, "#D32F2F");
         bottomBar.mapColorForTab(1, "#00796B");
         bottomBar.mapColorForTab(2, "#7B1FA2");
-        bottomBar.mapColorForTab(3, "#FF5252");
+        bottomBar.mapColorForTab(3, "#3B494C");
         bottomBar.mapColorForTab(4, "#FFF9B70E");
 
 
-        BottomBarBadge bottomBarBadge=bottomBar.makeBadgeForTabAt(3,"#E91E63",4);
+        BottomBarBadge bottomBarBadge=bottomBar.makeBadgeForTabAt(3,"#1A237E",4);
         bottomBarBadge.show();
         bottomBarBadge.setAnimationDuration(200);
         actionBar=getSupportActionBar();
@@ -80,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(R.layout.layout_toolbar);
         txtTitle = (TextView) findViewById(R.id.myToolbarTitle);
-
+        btnToMap= (Button) findViewById(R.id.btnToMap);
 
 
     }

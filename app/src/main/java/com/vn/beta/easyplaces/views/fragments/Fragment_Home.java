@@ -21,13 +21,12 @@ import java.util.ArrayList;
 
 
 public class Fragment_Home extends Fragment {
-    private ArrayList<Post> hotels;
+    private static ArrayList<Post> posts=new ArrayList<>();
     private ListView listView;
     public static AdapterListViewHome adapterListViewHome;
     public static ArrayList<Bitmap> bitmaps;
     public static boolean flag=false;
 
-//    private static final String STARTING_TEXT = "BOTTOM BAR";
 
     public Fragment_Home() {
     }
@@ -43,14 +42,14 @@ public class Fragment_Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         listView = (ListView) view.findViewById(R.id.lvHotel);
-        hotels = new ArrayList<>();
+        posts = new ArrayList<>();
         final ArrayList<String> links=new ArrayList<>();
         giaLap(links);
 
         adapterListViewHome = new AdapterListViewHome(
                 getActivity(),
                 R.layout.item_home,
-                hotels);
+                posts);
         listView.setAdapter(adapterListViewHome);
         if (bitmaps==null){
             DownloadImage downloadImage=new DownloadImage(getContext());
@@ -62,28 +61,30 @@ public class Fragment_Home extends Fragment {
 
     private void giaLap(ArrayList<String> links) {
 
-        hotels.add(new Post("Nhà Trọ 1", "K12/34 ngô thì nhậm",
-                "dãy trọ", 40, 400, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg"));
-        /*hotels.add(new Post("Nhà Trọ 2", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "https://fbcdn-photos-c-a.akamaihd.net/hphotos-ak-xlf1/v/t1.0-0/s403x403/8296_1555283951428831_7600305487764050737_n.jpg?oh=df95d817924aeafadbceffa367fa6913&oe=5823A4FC&__gda__=1478197573_4791449df403271acff580e5f5003745"));
-        hotels.add(new Post("Nhà Trọ 3", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg"));
-        hotels.add(new Post("Nhà Trọ 4", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg"));
-        hotels.add(new Post("Nhà Trọ 5", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg"));
-        hotels.add(new Post("Nhà Trọ 6", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg"));
-        hotels.add(new Post("Nhà Trọ 7", "K12/34 ngô sĩ liên",
-                "dãy trọ", 40, 400, "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13614961_1187910394586621_7843891021441422156_n.jpg?oh=4e2115b6a48aa33b557dd396982835ca&oe=58134AE6"));*/
-        links.add(hotels.get(0).getLink());
-       /* links.add(hotels.get(1).getLink());
-        links.add(hotels.get(2).getLink());
-        links.add(hotels.get(3).getLink());
-        links.add(hotels.get(4).getLink());
-        links.add(hotels.get(5).getLink());
-        links.add(hotels.get(6).getLink());*/
+        posts.add(new Post("Nhà Trọ 1", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg","-58.499435", "74.882813"));
+        posts.add(new Post("Nhà Trọ 2", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "https://fbcdn-photos-c-a.akamaihd.net/hphotos-ak-xlf1/v/t1.0-0/s403x403/8296_1555283951428831_7600305487764050737_n.jpg?oh=df95d817924aeafadbceffa367fa6913&oe=5823A4FC&__gda__=1478197573_4791449df403271acff580e5f5003745","0.955766", "34.804688"));
+        posts.add(new Post("Nhà Trọ 3", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg","30.968189", "-87.539063"));
+        posts.add(new Post("Nhà Trọ 4", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg","16.082093", "108.109632"));
+        posts.add(new Post("Nhà Trọ 5", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg","16.082093", "108.109632"));
+        posts.add(new Post("Nhà Trọ 6", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "http://www.xaydungdatnguon.com/images/dichvu/1429115624_tu-van-xay-dung-nha-tro.jpg","16.075907", "108.118944"));
+        posts.add(new Post("Nhà Trọ 7", "K12/34 ngô sĩ liên",
+                "dãy trọ", 40, 600, "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13614961_1187910394586621_7843891021441422156_n.jpg?oh=4e2115b6a48aa33b557dd396982835ca&oe=58134AE6","16.078670", "108.098645"));
+        links.add(posts.get(0).getLink());
+        links.add(posts.get(1).getLink());
+        links.add(posts.get(2).getLink());
+        links.add(posts.get(3).getLink());
+        links.add(posts.get(4).getLink());
+        links.add(posts.get(5).getLink());
+        links.add(posts.get(6).getLink());
     }
 
-
+    public static ArrayList<Post> getPosts() {
+        return posts;
+    }
 }

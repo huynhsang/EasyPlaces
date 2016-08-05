@@ -4,7 +4,7 @@ package com.vn.beta.easyplaces.models;
 public class Post {
 
     private int id, price, ownerId;
-    private String name, address, type, longitude, latitude, dateTime, zone;
+    private String name, address, type, dateTime, zone,longitude, latitude;
     private float area;
 
     private String link;
@@ -30,6 +30,15 @@ public class Post {
         this.type = type;
         this.price = price;
         this.link = link;
+    }
+    public Post(String name, String address, String type, float area, int price, String link,String latitude,String longitude){
+        this.name = name;
+        this.address = address;
+        this.type = type;
+        this.price = price;
+        this.link = link;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
     public int getId() {

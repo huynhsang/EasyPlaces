@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<TextView
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:text="Trang Chủ"
+        android:text="Trang Chủ"
     android:textColor="#ffffff"
     android:id="@+id/myToolbarTitle"
     android:textSize="20sp"
-    android:textStyle="bold"/>
+    android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-</LinearLayout>
+    <com.vn.beta.easyplaces.effects.fonts.CustomFontButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToMap"
+        app:font="@string/font_fontawesome"
+        android:text="&#xf279;"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="#00ffffff"
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/myToolbarTitle" />
+
+</RelativeLayout>
